@@ -5,7 +5,7 @@ Wireshark with Python
 * 实现wireshark的过滤器操作
 * 实现过滤器历史记录，方便二次查询
 
-## 过滤器：
+## 过滤器
 1. 字段搜索
 2. 字符搜索
 3. 流跟踪 [ip.src port.src ip.dst port.dst] 构成索引
