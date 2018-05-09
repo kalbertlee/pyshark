@@ -1,10 +1,10 @@
 from app import app
 from ext import db
-#db.init_app(app)
+db.init_app(app)
 
 class Pcap(db.Model):
     __tablename__ = 'pcap_list'
-    pid = db.Column(db.Integer,primary_key=True,autoincrement=True)
+    pid = db.Column(db.Integer,primary_key=True,autoincrement=True,index=True)
     pname = db.Column(db.String(255),nullable=False)
 
     def __init__(self, pname):
@@ -15,7 +15,7 @@ class Pcap(db.Model):
 
 class PcapRes(db.Model):
     __tablename__ = 'pcap_result'
-    rid = db.Column(db.Integer,primary_key=True,autoincrement=True)
+    rid = db.Column(db.Integer,primary_key=True,autoincrement=True,index=True)
     pid = db.Column(db.Integer)
     raw = db.Column(db.LargeBinary(1500))
 
@@ -28,7 +28,7 @@ class PcapRes(db.Model):
 
 class PcapFlt(db.Model):
     __tablename__ = 'pcap_filter'
-    fid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    fid = db.Column(db.Integer, primary_key=True, autoincrement=True,index=True)
     pid = db.Column(db.Integer)
     fstr = db.Column(db.String(1024))
 
@@ -38,7 +38,7 @@ class PcapFlt(db.Model):
 
 class PcapFltRes(db.Model):
     __tablename__ = 'pcap_filter_result'
-    frid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    frid = db.Column(db.Integer, primary_key=True, autoincrement=True,index=True)
     fid = db.Column(db.Integer)
     raw = db.Column(db.LargeBinary(1500))
 
@@ -51,7 +51,7 @@ class PcapFltRes(db.Model):
 
 class PcapTCPStream(db.Model):
     __tablename__ = 'pcap_tcpstream'
-    sid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    sid = db.Column(db.Integer, primary_key=True, autoincrement=True,index=True)
     sindex = db.Column(db.Integer)
     raw = db.Column(db.LargeBinary(1500))
 
@@ -60,7 +60,8 @@ class PcapTCPStream(db.Model):
 
 class PcapUDPStream(db.Model):
     __tablename__ = 'pcap_udpstream'
-    sid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    sid = db.Column(db.Integer, primary_key=True, autoincrement=True,index=True)
+    pid = db.Column(db.Integer)
     sindex = db.Column(db.Integer)
     raw = db.Column(db.LargeBinary(1500))
 
