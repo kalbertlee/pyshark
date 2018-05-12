@@ -11,7 +11,7 @@ class Pcap(db.Model):
         self.pname = pname
 
     def __repr__(self):
-        return '['+self.pid+']'+self.pname
+        return '[{}] {}'.format(self.pid,self.pname)
 
 class PcapRes(db.Model):
     __tablename__ = 'pcap_result'
@@ -67,3 +67,24 @@ class PcapUDPStream(db.Model):
 
     def __init__(self, raw):
         self.raw = raw
+
+def addPcap(pname):
+    pcap = Pcap(pname=pname)
+    return pcap
+
+def addPcapRes(pcap):
+    pcap_res = PcapRes(pid=pcap.pid,raw='123')
+    return pcap_res
+
+def runPcap():
+    db.drop_all()
+    db.create_all()
+
+    pcap = addPcap('p2.pcap')
+    print(pcap.pid)
+    pcap_res = addPcapRes(pcap)
+    db.session.add(pcap)
+    db.session.commit()
+    npcap = Pcap.query.get(1)#filter_by(pid=1).first()
+    print(npcap.pid)
+    return str(pcap)
