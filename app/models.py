@@ -1,6 +1,5 @@
-from app import app
+#-*- coding=utf-8 -*-
 from ext import db
-db.init_app(app)
 
 class Pcap(db.Model):
     __tablename__ = 'pcap_list'

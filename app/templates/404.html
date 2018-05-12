@@ -1,0 +1,30 @@
+{% extends 'bootstrap/base.html' %}
+{% import '_macro.html' as ui %}
+
+{% block html_attribs %} xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" {% endblock %}
+{% block title %}{{ super() }}{% endblock %}
+{% block metas %}
+{{ super() }}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% endblock %}
+{% block scripts %}{{ super() }}{% endblock %}
+{% block styles %}
+{{ super() }}
+<style type="text/css">
+body{text-align:center}
+img{margin: 0 auto;}
+h1,p{font-family:"Microsoft YaHei"}
+</style>
+{% endblock %}
+
+{% block body %}
+{% block navbar %}
+{{ ui.nav_bar() }}
+{% endblock %}
+<img src="{{ url_for('static', filename='image/404.gif') }}" class="img-responsive" alt="404" />
+<h1>你要的页面找不到了</h1>
+    <p>5秒后跳转到<a href="{{ url_for('index') }}">首页</a>...</p>
+<script type="text/javascript">setTimeout(function(){top.location='{{ url_for('index') }}';},6000)</script>
+
+{% endblock %}

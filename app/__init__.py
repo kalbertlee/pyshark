@@ -1,6 +1,7 @@
-from flask import Flask, url_for, request, redirect, render_template
+from flask import Flask
 from app.config import DevConfig
+
 app = Flask(__name__)
 app.config.from_object(DevConfig)
 
-from app.templates import views,models
+from app import models, views

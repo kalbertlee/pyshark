@@ -1,8 +1,33 @@
-<html>
-<head>
-    <title>Index - Pcap Analyzer</title>
-</head>
-<body>
-<h1>{{ content }}</h1>
-</body>
-</html>
+{% extends 'bootstrap/base.html' %}
+{% import '_macro.html' as ui %}
+
+{% block html_attribs %} xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" {% endblock %}
+{% block title %}{{ super() }}{% endblock %}
+{% block metas %}
+{{ super() }}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% endblock %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+{% block navbar %}
+{{ ui.nav_bar() }}
+{% endblock %}
+
+{% block content %}
+    {{ content }}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+{% endblock %}
