@@ -1,0 +1,12 @@
+#content{
+    margin-top: 70px;
+    font-family: 'Microsoft YaHei';
+}
+
+#content table thead tr th,
+#content table tbody tr td{
+    text-overflow: ellipsis; /* for IE */
+    -moz-text-overflow: ellipsis; /* for Firefox,mozilla */
+    overflow: hidden;
+    white-space: nowrap;
+}

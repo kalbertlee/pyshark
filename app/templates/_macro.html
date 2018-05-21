@@ -1,16 +1,23 @@
-{% macro nav_bar() %}
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#">首页</a></li>
-    <li><a href="#">资料</a></li>
-    <li class="disabled"><a href="#">信息</a></li>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">下拉 <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">操作</a></li>
-        <li><a href="#">设置栏目</a></li>
-        <li><a href="#">更多设置</a></li>
-        <li class="divider">&nbsp;</li>
-        <li><a href="#">分割线</a></li>
+{% macro navbar() %}
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Pcap Analyzer</a>
+    </div>
+    <div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ url_for('index') }}">首页</a></li>
+        <li><a href="#">上传</a></li>
+        <li><a href="#">分析</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">下拉 <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">操作</a></li>
+            <li><a href="#">设置栏目</a></li>
+            <li><a href="#">更多设置</a></li>
+            <li class="divider">&nbsp;</li>
+            <li><a href="#">分割线</a></li>
+        </ul>
+        </li>
     </ul>
-    </li>
-</ul>
+    </div>
+</nav>
 {% endmacro %}

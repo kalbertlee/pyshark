@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+scapy_http/__init__.py
+scapy_http/http.py
+scapy_http.egg-info/PKG-INFO
+scapy_http.egg-info/SOURCES.txt
+scapy_http.egg-info/dependency_links.txt
+scapy_http.egg-info/requires.txt
+scapy_http.egg-info/top_level.txt
